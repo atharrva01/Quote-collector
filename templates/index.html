@@ -4,54 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quote Collector</title>
-    <style>
-        *{
-    margin: 0;
-    padding: 0;
-}
-body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #1a1a1a;
-    width: 100vw;
-    height: 100vh;
-}
-.container{
-    display: flex;
-    background-color: #c3c3c3;
-    color: #1a1a1a;
-    flex-direction: column;
-    padding: 20px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 8px;
-}
-input{
-    padding: 10px;
-    border-radius: 8px;
-    border: none;
-    margin-top: 10px;
-}
-.inputss{
-    display: flex;
-    flex-direction: row;
-}
-.sub:hover{
-    background-color: #a6ff9e;
-}
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
 </head>
 <body>
     <div class="container">
     <h1>Quote Collector</h1>
     <div class="inputss"> 
     <form method="post">
-        <input type="text" name="Quote" placeholder="Enter Quote">
-        <input type="text" name="Author" placeholder="Enter Author of the Quote">
+        <input type="text" name="Quote" placeholder="Enter Quote" required>
+        <input type="text" name="Author" placeholder="Enter Author of the Quote" required>
         <input type="submit" value="Submit" class="sub">
     </form>
     </div>
+    {% for q in quotes %}
+    <p>{{ q }}</p>
+    {% endfor %}
     </div>
 </body>
 </html>
